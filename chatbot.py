@@ -32,9 +32,9 @@ def find_relevant_answer(question):
     # Find the most similar question using the function above
     most_similar_question = find_similar_question(question)
     # Get the ID of the most similar question
-    question_id = questions_df[questions_df['Body'] == most_similar_question]['Id'].values[0]
+    question_id = questions_df[questions_df['Body'] == most_similar_question]['Id'].values
     # Get the answers for the most similar question
-    answers = answers_df[answers_df['ParentID'] == question_id]
+    answers = answers_df[answers_df['ParentId'] == question_id]
     # Sort the answers by relevancy score
     answers = answers.sort_values(by=['Score'], ascending=False)
     # Return the most relevant answer
