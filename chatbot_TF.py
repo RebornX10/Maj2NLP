@@ -5,11 +5,12 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Read in the two CSV files using pandas
-questions = pd.read_csv('questions.csv')
-answers = pd.read_csv('answers.csv')
+questions = pd.read_csv('data/questions_preprocessed.csv')
+
+answers = pd.read_csv('data/answers_preprocessed.csv')
 
 # Preprocess the data
-# ADD THE DATA
+
 
 # Split the data into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(questions, answers, test_size=0.2)
