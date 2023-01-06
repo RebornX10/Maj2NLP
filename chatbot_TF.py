@@ -1,10 +1,12 @@
 import tensorflow as tf
 import tensorflow_text as text
 import pandas as pd
+# import train_test_split
+from sklearn.model_selection import train_test_split
 
 # Read in the two CSV files using pandas
-questions_df = pd.read_csv('questions.csv')
-answers_df = pd.read_csv('answers.csv')
+questions = pd.read_csv('questions.csv')
+answers = pd.read_csv('answers.csv')
 
 # Preprocess the data
 # ADD THE DATA

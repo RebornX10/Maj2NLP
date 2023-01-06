@@ -3,8 +3,8 @@ import re
 import difflib
 
 # Read in the two CSV files using pandas
-questions_df = pd.read_csv('questions.csv')
-answers_df = pd.read_csv('answers.csv')
+questions_df = pd.read_csv('data/questions_preprocessed.csv')
+answers_df = pd.read_csv('data/answers_preprocessed.csv')
 
 # Function to find the most similar question in the questions CSV
 def find_similar_question(question):
