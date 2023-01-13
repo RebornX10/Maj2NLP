@@ -26,4 +26,4 @@ if st.checkbox(f'Show raw data'):
 prompt = st.text_area("Ask any question", max_chars=120, placeholder="How to download a file over http Python",
                       label_visibility="visible")
 
-st.write('Most relevant answer:', chatter(prompt))
+st.write('Most relevant answer:', str(chatter(prompt)))
