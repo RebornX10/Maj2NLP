@@ -54,8 +54,8 @@ def remove_non_alphabetical_character(text):
     return text
 
 
-def clean_quest(text):
-    return remove_non_alphabetical_character(remove_punctuation_and_number(autocorrect(expand_contractions(clean_text(text)))))
+def clean_quest(text: str):
+    return remove_non_alphabetical_character(remove_punctuation_and_number(expand_contractions(autocorrect(clean_text(text)))))
 
 
 

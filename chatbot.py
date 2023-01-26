@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 import re
 import difflib
+from preprocess import clean_quest
 
 questions_df = pd.read_csv('data/questions_preprocessed.csv', encoding_errors='replace')
 answers_df = pd.read_csv('data/answers_preprocessed.csv', encoding_errors='replace')
@@ -36,11 +37,13 @@ def find_relevant_answer(question):
 
 
 def chatter(question):
+    question = clean_quest(question)
     if question.lower() == 'exit':
         print('Exiting chatbot...')
         sys.exit()
     # Find and display the relevant answer
     answer = find_relevant_answer(question)
     print(answer)
+    return answer[0]
 
 chatter("download file over http")
