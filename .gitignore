@@ -11,6 +11,11 @@ venv/*
 # C extensions
 *.so
 
+/Scripts
+/etc
+/share
+
+
 # Distribution / packaging
 .Python
 build/
