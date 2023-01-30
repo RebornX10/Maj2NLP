@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from chatbot import chatter
 
-st.title('Chatbot')
+st.title('AskMeAnything')
 
 
 @st.cache
@@ -23,8 +23,8 @@ if st.checkbox(f'Show raw data'):
     st.write(questions)
     st.write(answers)
 
-prompt = st.text_area("Ask any question", max_chars=120, placeholder="How to download a file over http Python",
-                      label_visibility="visible")
+prompt = st.text_area("Ask any question", max_chars=120, placeholder="find broken symlinks with python",
+                      label_visibility="visible",value="find broken symlinks with python")
 
-st.write('Most relevant answer:\n')
+st.write('Most relevant answer:\n\n')
 st.markdown(chatter(prompt), unsafe_allow_html=True)

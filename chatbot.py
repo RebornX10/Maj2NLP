@@ -4,10 +4,22 @@ import pandas as pd
 import re
 import difflib
 from preprocess import clean_quest
+from cdifflib import CSequenceMatcher
+import time
+difflib.SequenceMatcher = CSequenceMatcher
 
 questions_df = pd.read_csv('data/questions_preprocessed.csv', encoding_errors='replace')
 answers_df = pd.read_csv('data/answers_preprocessed.csv', encoding_errors='replace')
 
+
+def time_execution(fn):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = fn(*args, **kwargs)
+        end_time = time.time()
+        print("Execution time: ", end_time - start_time)
+        return result
+    return wrapper
 
 def find_similar_question(question):
     highest_similarity = 0
@@ -35,7 +47,7 @@ def find_relevant_answer(question):
     answers = answers.sort_values(by=['Score'], ascending=False)
     return answers['Body'].values
 
-
+@time_execution
 def chatter(question):
     question = clean_quest(question)
     if question.lower() == 'exit':
